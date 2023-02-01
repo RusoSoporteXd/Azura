@@ -1,6 +1,6 @@
 // Libs
 const { AkairoClient, CommandHandler, ListenerHandler, InhibitorHandler } = require('discord-akairo')
-const { IntentsBitField, Partials } = require('discord.js');
+const { Intents } = require('discord.js');
 const { join } = require('path');
 const { Logger } = require('tslog')
 
@@ -14,22 +14,21 @@ class Azura extends AkairoClient {
             ownerID: owners
         }, {
             intents: [
-                IntentsBitField.Flags.Guilds,
-                IntentsBitField.Flags.GuildMessages
+                Intents.FLAGS.GUILDS,
+                Intents.FLAGS.GUILD_MESSAGES
             ],
             partials: [
-                Partials.Message,
-                Partials.Channel,
-                Partials.GuildMember,
-                Partials.User,
+                "MESSAGE",
+                "USER",
+                "CHANNEL",
+                "GUILD_MEMBER"
             ],
             allowedMentions: {
-                repliedUser: false,
                 parse: []
             }
         });
         this.commandHandler = new CommandHandler(this, {
-            directory: join(process.cwd(), 'commands'),
+            directory: join(process.cwd(), 'source', 'commands'),
             prefix: prefix,
             ignoreCooldown: [],
             blockBots: true,
@@ -38,15 +37,15 @@ class Azura extends AkairoClient {
             commandUtil: true
         })
         this.inhibitorHandler = new InhibitorHandler(this, {
-            directory: join(process.cwd(), 'inhibitors')
+            directory: join(process.cwd(), 'source', 'inhibitors')
         })
         this.listenerHandler = new ListenerHandler(this, {
-            directory: join(process.cwd(), 'listeners')
+            directory: join(process.cwd(), 'source', 'listeners')
         })
         this.listenerHandler.setEmitters({
-            commandHandler: this.CommandHandler,
-            listenerHandler: this.ListenerHandler,
-            inhibitorHandler: this.InhibitorHandler
+            commandHandler: this.commandHandler,
+            listenerHandler: this.listenerHandler,
+            inhibitorHandler: this.inhibitorHandler
         })
         this.commandHandler.useInhibitorHandler(this.InhibitorHandler)
         this.commandHandler.useListenerHandler(this.ListenerHandler)
