@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/RusoSoporteXd/Azura/issues"
   },
-  "homepage": "https://github.com/RusoSoporteXd/Azura#readme"
+  "homepage": "https://github.com/RusoSoporteXd/Azura#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1"
+  }
 }

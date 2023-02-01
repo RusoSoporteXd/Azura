@@ -1,0 +1,9 @@
+# Directorios
+/node_modules
+
+# Archivos
+pnpm-lock.yaml
+
+# Extensiones
+*.txt
+*.env
