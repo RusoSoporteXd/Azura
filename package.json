@@ -1,0 +1,20 @@
+{
+  "name": "azura",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node source/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RusoSoporteXd/Azura.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RusoSoporteXd/Azura/issues"
+  },
+  "homepage": "https://github.com/RusoSoporteXd/Azura#readme"
+}
