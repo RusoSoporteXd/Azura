@@ -53,7 +53,14 @@ class Azura extends AkairoClient {
         this.listenerHandler.loadAll()
         this.inhibitorHandler.loadAll()
 
-        this.logger = new Logger()
+        this.logger = new Logger({
+            exposeStack: false,
+            displayFunctionName: false,
+            displayInstanceName: false,
+
+            dateTimePattern: 'year-day-month hour:minute',
+            displayFilePath: 'displayAll'
+        })
     }
     async login(token) {
         await super.login(token)

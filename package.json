@@ -18,11 +18,12 @@
   },
   "homepage": "https://github.com/RusoSoporteXd/Azura#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "discord-akairo": "^8.1.0",
     "discord.js": "^12.5.3",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "tslog": "^4.7.1"
+    "tslog": "^3.3.2"
   }
 }
