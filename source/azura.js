@@ -23,18 +23,31 @@ class Azura extends AkairoClient {
                 "CHANNEL",
                 "GUILD_MEMBER"
             ],
-            allowedMentions: {
-                parse: []
-            }
+            presence: [{
+                status: "dnd"
+            }],
+            ws: {
+                properties: {
+                    $browser: "Discord Android"
+                }
+            },
+            disableMentions: 'everyone',
+            messageCacheLifetime: 300,
+            messageSweepInterval: 900,
+
         });
         this.commandHandler = new CommandHandler(this, {
             directory: join(process.cwd(), 'source', 'commands'),
             prefix: prefix,
+            defaultCooldown: 3000,
             ignoreCooldown: [],
             blockBots: true,
             allowMention: true,
             handleEdits: true,
-            commandUtil: true
+            commandUtil: true,
+            commandUtilLifetime: 3e5,
+            commandUtilSweepInterval: 9e5,
+            fetchMembers: true,
         })
         this.inhibitorHandler = new InhibitorHandler(this, {
             directory: join(process.cwd(), 'source', 'inhibitors')
