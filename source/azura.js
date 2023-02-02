@@ -47,8 +47,8 @@ class Azura extends AkairoClient {
             listenerHandler: this.listenerHandler,
             inhibitorHandler: this.inhibitorHandler
         })
-        this.commandHandler.useInhibitorHandler(this.InhibitorHandler)
-        this.commandHandler.useListenerHandler(this.ListenerHandler)
+        this.commandHandler.useInhibitorHandler(this.inhibitorHandler)
+        this.commandHandler.useListenerHandler(this.listenerHandler)
         this.commandHandler.loadAll()
         this.listenerHandler.loadAll()
         this.inhibitorHandler.loadAll()
